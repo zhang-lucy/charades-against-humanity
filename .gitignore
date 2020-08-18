@@ -1,0 +1,6 @@
+.DS_Store
+.npmignore
+.eslintignore
+.eslintrc
+.vscode
+node_modules/*
