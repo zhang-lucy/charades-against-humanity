@@ -18,14 +18,31 @@
                     "application/json",
                     "text/json"
                 ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "query",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
                 "responses": {
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "type": "array",
-                            "items": {
-                                "$ref": "#/definitions/Card"
+                            "type": "object",
+                            "properties": {
+                                "id": {
+                                    "type": "string"
+                                },
+                                "deck": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/definitions/Card"
+                                    }
+                                }
                             }
+
                         }
                     }
                 },
@@ -95,21 +112,11 @@
         "Card": {
             "type": "object",
             "properties": {
-                "cleared": {
-                    "type": "boolean"
-                }
-            }
-        },
-        "CardGuess": {
-            "type": "object",
-            "properties": {
-                "id": {
-                    "format": "int32",
-                    "type": "integer"
+                "name": {
+                    "type": "string"
                 },
-                "value": {
-                    "format": "int32",
-                    "type": "integer"
+                "id": {
+                    "type": "string"
                 }
             }
         }
