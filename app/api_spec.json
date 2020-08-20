@@ -2,12 +2,25 @@
 {
 	"id": "string",
 	"deck": "Card[]",
-	"team1_won": "Card[]",
-	"team2_won": "Card[]",
-	"team1_lost": "Card[]",
-	"team2_lost": "Card[]",
-	"team1_score": "integer",
-	"team2_score": "integer"
+	"team1": "Team",
+	"team2": "Team"
+}
+
+// Team Object
+{
+	"id": "string",
+	"name": "string",
+	"wonCards": "Card[]",
+	"passedCards": "Card[]",
+	"score": "integer",
+	"players": "Player[]"
+}
+
+// Player Object
+{
+	"id": "string",
+	"name": "string",
+	"teamId": "string"
 }
 
 // Card Object

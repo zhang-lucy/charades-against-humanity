@@ -40,6 +40,12 @@
                                     "items": {
                                         "$ref": "#/definitions/Card"
                                     }
+                                },
+                                "team1": {
+                                    "$ref": "#/definitions/Team"                                    
+                                },
+                                "team2": {
+                                    "$ref": "#/definitions/Team"                                    
                                 }
                             }
 
@@ -92,11 +98,10 @@
                 ],
                 "parameters": [
                     {
-                        "name": "size",
+                        "name": "name",
                         "in": "query",
                         "required": true,
-                        "type": "integer",
-                        "format": "int32"
+                        "type": "string"
                     }
                 ],
                 "responses": {
@@ -117,6 +122,79 @@
                 },
                 "id": {
                     "type": "string"
+                }
+            }
+        },
+        "Player": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "teamId": {
+                    "type": "string"
+                }
+            }
+        },
+        "Team": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "wonCards": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "name": {
+                                "type": "string"
+                            },
+                            "id": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                },
+                "lostCards": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "name": {
+                                "type": "string"
+                            },
+                            "id": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                },
+                "score": {
+                    "type": "integer"
+                },
+                "players": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "id": {
+                                "type": "string"
+                            },
+                            "name": {
+                                "type": "string"
+                            },
+                            "teamId": {
+                                "type": "string"
+                            }
+                        }
+                    }
                 }
             }
         }
