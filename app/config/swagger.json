@@ -27,13 +27,35 @@
                     "application/json",
                     "text/json"
                 ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "query",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
                 "responses": {
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "type": "array",
-                            "items": {
-                                "$ref": "#/definitions/Card"
+                            "type": "object",
+                            "properties": {
+                                "id": {
+                                    "type": "string"
+                                },
+                                "deck": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/definitions/Card"
+                                    }
+                                },
+                                "team1": {
+                                    "$ref": "#/definitions/Team"
+                                },
+                                "team2": {
+                                    "$ref": "#/definitions/Team"
+                                }
                             }
                         }
                     }
@@ -67,7 +89,7 @@
                         "schema": {
                             "type": "array",
                             "items": {
-                                "$ref": "#/definitions/CardGuess"
+                                "$ref": "#/definitions/Team"
                             }
                         }
                     }
@@ -88,11 +110,22 @@
                 ],
                 "parameters": [
                     {
-                        "name": "size",
+                        "name": "id",
                         "in": "query",
                         "required": true,
-                        "type": "integer",
-                        "format": "int32"
+                        "type": "string"
+                    },
+                    {
+                        "name": "team1Name",
+                        "in": "query",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "team2Name",
+                        "in": "query",
+                        "required": true,
+                        "type": "string"
                     }
                 ],
                 "responses": {
@@ -108,21 +141,84 @@
         "Card": {
             "type": "object",
             "properties": {
-                "cleared": {
-                    "type": "boolean"
+                "name": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "string"
                 }
             }
         },
-        "CardGuess": {
+        "Player": {
             "type": "object",
             "properties": {
                 "id": {
-                    "format": "int32",
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "teamId": {
+                    "type": "string"
+                }
+            }
+        },
+        "Team": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "wonCards": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "name": {
+                                "type": "string"
+                            },
+                            "id": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                },
+                "lostCards": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "name": {
+                                "type": "string"
+                            },
+                            "id": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                },
+                "score": {
                     "type": "integer"
                 },
-                "value": {
-                    "format": "int32",
-                    "type": "integer"
+                "players": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "id": {
+                                "type": "string"
+                            },
+                            "name": {
+                                "type": "string"
+                            },
+                            "teamId": {
+                                "type": "string"
+                            }
+                        }
+                    }
                 }
             }
         }

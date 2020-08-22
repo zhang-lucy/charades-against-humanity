@@ -1,14 +1,14 @@
 {
-    "name": "charades-against-humanity",
+    "name": "app",
     "description": "",
     "version": "1.0.0",
-    "author": "sdf <fee>",
+    "author": "1 <1>",
     "contributors": [],
     "repository": {
         "type": "git",
-        "url": "git://github.com/awfa/charades-against-humanity.git"
+        "url": "git://github.com/1/app.git"
     },
-    "bugs": "http://github.com/awfa/charades-against-humanity/issues",
+    "bugs": "http://github.com/1/app/issues",
     "publishConfig": {
         "registry": "https://registry.npmjs.org"
     },

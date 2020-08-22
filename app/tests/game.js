@@ -25,9 +25,9 @@ Test('/game', function (t) {
         t.error(err, 'No parse error');
         t.ok(api, 'Valid swagger api');
         /**
-         * summary: Retrieves the current state of the memory game board.
+         * summary: Retrieves the current state of the memory game game.
          * description: 
-         * parameters: 
+         * parameters: id
          * produces: application/json, text/json
          * responses: 200
          */

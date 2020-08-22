@@ -25,9 +25,9 @@ Test('/new', function (t) {
         t.error(err, 'No parse error');
         t.ok(api, 'Valid swagger api');
         /**
-         * summary: Initializes a new game board of the specified size (# of matches).
+         * summary: Initializes a new game game of the specified size (# of matches).
          * description: 
-         * parameters: size
+         * parameters: name
          * produces: application/json, text/json
          * responses: 200
          */

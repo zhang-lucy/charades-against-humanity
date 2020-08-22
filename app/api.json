@@ -79,7 +79,7 @@
                         "schema": {
                             "type": "array",
                             "items": {
-                                "$ref": "#/definitions/CardGuess"
+                                "$ref": "#/definitions/Team"
                             }
                         }
                     }
@@ -98,7 +98,19 @@
                 ],
                 "parameters": [
                     {
-                        "name": "name",
+                        "name": "id",
+                        "in": "query",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "team1Name",
+                        "in": "query",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "team2Name",
                         "in": "query",
                         "required": true,
                         "type": "string"

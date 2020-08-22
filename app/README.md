@@ -1,3 +1,3 @@
-# charades-against-humanity
+# app
 
 Swagger api [location](./config/swagger.json)
