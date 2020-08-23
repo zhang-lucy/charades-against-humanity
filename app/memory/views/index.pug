@@ -2,4 +2,11 @@ extends layout
 
 block content
   h1= title
-  p Welcome to #{title}
+  p Welcome to #{title}  
+  textarea(id="newGameId" placeholder="Enter your game id")
+  br
+  button(class='new-game-button' onclick="newGame()") New Game
+  button(class='new-game-button' onclick="joinGame()") Join Game
+  button(class='new-game-button' onclick="showPlayers()") Show Players
+  #top-panel
+  #game-board

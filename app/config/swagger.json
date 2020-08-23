@@ -3,7 +3,7 @@
     "info": {
         "version": "v1",
         "title": "Memory Game API",
-        "description": "A simple single-instance representation of memory (Concentration)."
+        "description": "An API for managing and playing multiple Charades Against Humanity games."
     },
     "schemes": [
         "http",
@@ -55,6 +55,9 @@
                                 },
                                 "team2": {
                                     "$ref": "#/definitions/Team"
+                                },
+                                "currentTurn": {
+                                    "type": "string"
                                 }
                             }
                         }
@@ -63,35 +66,34 @@
                 "deprecated": false
             }
         },
-        "/guess": {
+        "/new_player": {
             "put": {
                 "tags": [
                     "Game"
                 ],
-                "summary": "Specifies a card to reveal and checks for a match to the previous.",
-                "operationId": "game_guess",
+                "summary": "Creates a new player object and assigns it to an existing game",
+                "operationId": "game_new_player",
                 "produces": [
                     "application/json",
                     "text/json"
                 ],
                 "parameters": [
                     {
-                        "name": "card",
+                        "name": "name",
                         "in": "query",
                         "required": true,
-                        "type": "integer",
-                        "format": "int32"
+                        "type": "string"
+                    },
+                    {
+                        "name": "id",
+                        "in": "query",
+                        "required": true,
+                        "type": "string"
                     }
                 ],
                 "responses": {
                     "200": {
-                        "description": "OK",
-                        "schema": {
-                            "type": "array",
-                            "items": {
-                                "$ref": "#/definitions/Team"
-                            }
-                        }
+                        "description": "OK"
                     }
                 },
                 "deprecated": false

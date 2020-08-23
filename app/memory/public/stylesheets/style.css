@@ -6,3 +6,34 @@ body {
 a {
   color: #00B7FF;
 }
+
+.card {
+  height: 100px;
+  width: 50px;
+  color: white;
+  background: black;
+}
+
+.card-deck {
+  text-align: center;
+}
+
+.new-game-button {
+  color: green;
+}
+
+.team {
+  color: orange;
+}
+
+.teams-panel {
+  height: 10%;
+}
+
+.game-board {
+  height: 80%;
+}
+
+.error-message {
+  color: red;
+}

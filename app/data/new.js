@@ -52,7 +52,7 @@ function getTeam(name, id) {
         "wonCards": [],
         "lostCards": [],
         "score": 0,
-        "players": []
+        "players": [],
     }
 }
 
@@ -84,7 +84,8 @@ module.exports = {
                 "id": id,
                 "deck": cards,
                 "team1": team1,
-                "team2": team2
+                "team2": team2,
+                "currentTurn": team1.id
             }
 
             // For sample purposes only; use cloud storage for scaling up
