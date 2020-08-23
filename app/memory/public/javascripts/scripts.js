@@ -6,15 +6,15 @@ const JOIN_GAME = "/game";
 const TOGGLE_ACTOR = "/actor_toggle";
 const NEW_PLAYER = "/new_player";
 const PLAY_OR_PASS = "/play_pass"
-const CARDS_PATH = "../../../cards.txt";
+// const CARDS_PATH = "../../../cards.txt";
 const PLACEHOLDERDECK = [{"title": "Barack Obama", "id": "0"}, {"title": "Three midgets shitting in a bucket", "id": "1"}, {"title": "Sexual peeing", "id": "2"}];
 
 
-function getAllCards(path) {
-    $.get(CARDS_PATH, function(data) {
-        console.log(data);
-     }, 'text');
-}
+// function getAllCards(path) {
+//     $.get(CARDS_PATH, function(data) {
+//         console.log(data);
+//      }, 'text');
+// }
 
 function newGameOk(gameId, team1, team2) {
     // TODO: Check if game ID exists already
