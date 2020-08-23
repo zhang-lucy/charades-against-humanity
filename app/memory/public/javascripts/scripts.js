@@ -6,8 +6,11 @@ const JOIN_GAME = "/game";
 const CARDS_PATH = "../../../cards.txt";
 const PLACEHOLDERDECK = [{"title": "Barack Obama", "id": "0"}, {"title": "Three midgets shitting in a bucket", "id": "1"}, {"title": "Sexual peeing", "id": "2"}];
 
-function getAllCards(path) {
 
+function getAllCards(path) {
+    $.get(CARDS_PATH, function(data) {
+        console.log(data);
+     }, 'text');
 }
 
 function newGameOk(gameId, team1, team2) {
@@ -80,7 +83,6 @@ function drawGame(game) {
     const deck = getDeck(game.deck);
     $("#top-panel").html(teams);
     $("#game-board").html(deck);
-
 }
 
 function drawInvalidGameId(game) {
@@ -104,14 +106,29 @@ function getDeck(deck) {
     var output = "";
     // TODO: Change so that deck size shrinks as there are fewer cards
     if (deck.length > 0) {
-        const nextCardId = deck[0].id
+        const nextCardId = deck[deck.length-1].id
+        const nextCardTitle = deck[deck.length-1].title
+
         output += "<div class=\"flipContainer\">\
-        <div class=\"card card-deck\" id=\"" + nextCardId + "\">\
-            <div class=\"front\">Front of Card</span></div>\
-            <div class=\"back\">Back of Card</div>\
+        <div class=\"card card-deck not-flipped\" id=\"" + nextCardId + "\" onClick=\"flipCard(this)\">\
+            <div class=\"front\" style=\"display: inline-block;\">Cards Against Humanity</div>\
+            <div class=\"back\" style=\"display: none;\">" + nextCardTitle + "</span></div>\
         </div></div>";
-            
     }
     return output;
+}
 
+function flipCard(card) {
+    if ($(card).hasClass("not-flipped")) {
+        $(card).removeClass("not-flipped");
+        $(card).addClass("flipped");
+        $(card).children('.front').css("display", "none");
+        $(card).children('.back').css("display", "inline-block");
+    }
+    else {
+        $(card).removeClass("flipped");
+        $(card).addClass("not-flipped");
+        $(card).children('.front').css("display", "inline-block");
+        $(card).children('.back').css("display", "none");
+    } 
 }
