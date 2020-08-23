@@ -1,14 +1,13 @@
 'use strict';
 
-function getGame(gameId) {
-    if (global.games) {
-        for(var game of global.games) {
-            if (game.id == gameId) {
-                return game;
-            }
-        }
-    }
-    return null;
+
+function newPlayer(playerId, playerName, teamId) {
+    return { 
+        "id": playerId, 
+        "name": playerName, 
+        "teamId": teamId,
+        "score": 0
+    };
 }
 
 /**
@@ -24,34 +23,14 @@ module.exports = {
      * operationId: game_new_player
      */
     put: {
-        200: function (req, res, callback) {
-
-            var gameId = req.query.id;
+        200: function (req, res, game, callback) {
             var playerName = req.query.name;
-            var valid = true;
-            var message, status;
 
             // TODO: Change so it's not just team 1
-            var game = getGame(gameId);
-            if (game != null) {
-                var playerId = game.team1.players.length;
-                var players = game.team1.players
-                players.push({"id": playerId, "name":playerName, "teamId":game.team1.id});
-                game.team1.players = players;
-                message = "Player added. Ready to play!";
-            } else {
-                valid = false;
-                message = "Error: Enter a valid game ID";
-            }
-
-            if (valid) {
-                status = 200;
-            } else {
-                status = 400;
-            }
-
-            res.status(status).send(message);
-
+            var playerId = game.team1.players.length;
+            var players = game.team1.players
+            players.push(newPlayer(playerId, playerName, game.team1.id));
+            game.team1.players = players;
         }
     }
 };

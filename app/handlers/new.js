@@ -24,6 +24,10 @@
 'use strict';
 var dataProvider = require('../data/new.js');
 
+function checkGameId() {
+    // TODO: Check that id doesn't exist 
+}
+
 /**
  * Operations on /new
  */
@@ -50,9 +54,7 @@ module.exports = {
             }
         });
 
-        
         message = "Ready to play!"; // TODO
-
         res.status(status).send(message);
 
     }

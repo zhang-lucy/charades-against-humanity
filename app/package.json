@@ -2,13 +2,13 @@
     "name": "app",
     "description": "",
     "version": "1.0.0",
-    "author": "w <w>",
+    "author": "a <a>",
     "contributors": [],
     "repository": {
         "type": "git",
-        "url": "git://github.com/w/app.git"
+        "url": "git://github.com/a/app.git"
     },
-    "bugs": "http://github.com/w/app/issues",
+    "bugs": "http://github.com/a/app/issues",
     "publishConfig": {
         "registry": "https://registry.npmjs.org"
     },

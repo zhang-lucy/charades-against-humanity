@@ -22,7 +22,6 @@
 //  THE SOFTWARE.
 //  ---------------------------------------------------------------------------------
 'use strict';
-var Mockgen = require('./mockgen.js');
 /**
  * Operations on /game
  */
@@ -46,19 +45,6 @@ module.exports = {
                 }
             }
             return null;
-            // Only reveal cleared card values
-            // var currentgameState = [];
-            // var game = global.game;
-
-            // for (var i=0; i < game.length; i++){
-            //     var card = {};
-            //     card.cleared = game[i].cleared;
-            //     if ("true" == card.cleared) {  // To debug the game, comment this line
-            //         card.value = game[i].value;
-            //     }                              // And this line
-            //     currentgameState.push(card);
-            // }
-            // return currentgameState;
         }
     }
 };

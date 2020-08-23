@@ -18,7 +18,7 @@ a {
   text-align: center;
 }
 
-.new-game-button {
+.game-button {
   color: green;
 }
 
@@ -36,4 +36,8 @@ a {
 
 .error-message {
   color: red;
+}
+
+.leaderboard-title {
+  color: violet;
 }

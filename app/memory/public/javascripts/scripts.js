@@ -3,6 +3,9 @@
 const BASE_URL = "http://localhost:8000";
 const NEW_GAME = "/new";
 const JOIN_GAME = "/game";
+const TOGGLE_ACTOR = "/actor_toggle";
+const NEW_PLAYER = "/new_player";
+const PLAY_OR_PASS = "/play_pass"
 const CARDS_PATH = "../../../cards.txt";
 const PLACEHOLDERDECK = [{"title": "Barack Obama", "id": "0"}, {"title": "Three midgets shitting in a bucket", "id": "1"}, {"title": "Sexual peeing", "id": "2"}];
 
@@ -22,12 +25,14 @@ function newGameOk(gameId, team1, team2) {
 
 function newGame() {
     // TODO: un hardcode
-    const gameId = $("#newGameId").val();
+    const gameId = $("#gameId").val();
+    const playerName = $("#playerName").val();
     const team1 = "team red";
     const team2 = "team blue";
     const deck = PLACEHOLDERDECK;
 
-    if(newGameOk(gameId, team1, team2)){
+    // if(newGameOk(gameId, team1, team2)){
+    if(true){
         var url = BASE_URL+NEW_GAME+"?id="+gameId+"&team1Name="+team1+"&team2Name="+team2;
         $.ajax({
             type: "POST",
@@ -51,10 +56,9 @@ function newGame() {
 }
 
 function joinGame() {
-    // TODO: un hardcode
-    const gameId = $("#newGameId").val();
+    const gameId = $("#gameId").val();
 
-    if(newGameOk(gameId, team1, team2)){
+    if(true){
         var url = BASE_URL+JOIN_GAME+"?id="+gameId;
         $.ajax({
             type: "GET",
@@ -75,7 +79,39 @@ function joinGame() {
 }
 
 function showPlayers() {
+    const gameId = $("#gameId").val();
 
+    if(true){
+        var url = BASE_URL+JOIN_GAME+"?id="+gameId;
+        $.ajax({
+            type: "GET",
+            url: url,
+            success: function(data) {
+                // $("#game-board").html(data.toString);
+
+                console.log(data)
+
+                // draw the game board
+                drawLeaderboard(data);
+            },
+            error: function(data) {
+                drawInvalidGameId(data);
+            }
+        });
+    }
+}
+
+function drawLeaderboard(game) {
+    const players = game.team1.players;
+    var gameBoard = "<ul>";
+    for(var player of players) {
+        gameBoard += "<li>" + player.name + ": " + player.score + "</li>";
+    }
+    gameBoard += "</uv>";
+    var topPanel = "<div class=\"leaderboard-title\">Leaderboard</div>";
+
+    $("#top-panel").html(topPanel);
+    $("#game-board").html(gameBoard);
 }
 
 function drawGame(game) {

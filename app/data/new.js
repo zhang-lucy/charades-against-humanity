@@ -54,6 +54,7 @@ function getTeam(name, id) {
         "lostCards": [],
         "score": 0,
         "players": [],
+        "actors": []
     }
 }
 

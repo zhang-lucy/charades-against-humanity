@@ -99,6 +99,78 @@
                 "deprecated": false
             }
         },
+        "/play_pass": {
+            "put": {
+                "tags": [
+                    "Game"
+                ],
+                "summary": "Gives current player the option to play or pass",
+                "operationId": "game_play_pass",
+                "produces": [
+                    "application/json",
+                    "text/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "query",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "playerId",
+                        "in": "query",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "action",
+                        "in": "query",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/actor_toggle": {
+            "put": {
+                "tags": [
+                    "Game"
+                ],
+                "summary": "Changes player's actor status on/off",
+                "operationId": "game_play_pass",
+                "produces": [
+                    "application/json",
+                    "text/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "query",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "playerId",
+                        "in": "query",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "deprecated": false
+            }
+        },
         "/new": {
             "post": {
                 "tags": [
@@ -162,6 +234,10 @@
                 },
                 "teamId": {
                     "type": "string"
+                },
+                "score": {
+                    "type": "integer",
+                    "format": "int32"
                 }
             }
         },
@@ -220,6 +296,12 @@
                                 "type": "string"
                             }
                         }
+                    }
+                },
+                "actors": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
                     }
                 }
             }
