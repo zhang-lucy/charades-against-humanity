@@ -34,7 +34,6 @@ module.exports = {
          */
 
         var gameId = req.query.id;
-        var valid = true;
         var message, status;
 
         var game = getGame(gameId);
@@ -49,7 +48,6 @@ module.exports = {
                 res.status(status).send(data && data.responses);
             });
         } else {
-            valid = false;
             status = 400;
             message = "Error: Enter a valid game ID";
         }

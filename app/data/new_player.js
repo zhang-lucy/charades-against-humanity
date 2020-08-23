@@ -1,14 +1,13 @@
 'use strict';
 
-function getGame(gameId) {
-    if (global.games) {
-        for (var game of global.games) {
-            if (game.id == gameId) {
-                return game;
-            }
-        }
-    }
-    return null;
+
+function newPlayer(playerId, playerName, teamId) {
+    return { 
+        "id": playerId, 
+        "name": playerName, 
+        "teamId": teamId,
+        "score": 0
+    };
 }
 
 /**
@@ -30,7 +29,7 @@ module.exports = {
             // TODO: Change so it's not just team 1
             var playerId = game.team1.players.length;
             var players = game.team1.players
-            players.push({ "id": playerId, "name": playerName, "teamId": game.team1.id });
+            players.push(newPlayer(playerId, playerName, game.team1.id));
             game.team1.players = players;
         }
     }
