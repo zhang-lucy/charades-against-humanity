@@ -22,6 +22,7 @@
 //  THE SOFTWARE.
 //  ---------------------------------------------------------------------------------
 'use strict';
+const CARDS_PATH = "cards.txt";
 
 // Knuth shuffle courtesy of https://www.kirupa.com/html5/shuffling_array_js.htm
 Array.prototype.shuffle = function () {
@@ -37,12 +38,12 @@ Array.prototype.shuffle = function () {
 
 function getCards() {
     // TODO: Replace hardcoded names
-    const titles = ["Barack Obama", "Three midgets shitting in a bucket", "Sexual peeing"];
-    const cards = [];
-    for(var i = 0; i < titles.length; i++) {
-        cards.push({"id": i, "name": titles[i]});
-    }
-    return cards;
+    // const titles = ["Barack Obama", "Three midgets shitting in a bucket", "Sexual peeing"];
+    // const cards = [];
+    // for(var i = 0; i < titles.length; i++) {
+    //     cards.push({"id": i, "name": titles[i]});
+    // }
+    // return cards;
 }
 
 function getTeam(name, id) {
