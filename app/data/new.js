@@ -38,12 +38,12 @@ Array.prototype.shuffle = function () {
 
 function getCards() {
     // TODO: Replace hardcoded names
-    // const titles = ["Barack Obama", "Three midgets shitting in a bucket", "Sexual peeing"];
-    // const cards = [];
-    // for(var i = 0; i < titles.length; i++) {
-    //     cards.push({"id": i, "name": titles[i]});
-    // }
-    // return cards;
+    const titles = ["Barack Obama", "Three midgets shitting in a bucket", "Sexual peeing"];
+    const cards = [];
+    for(var i = 0; i < titles.length; i++) {
+        cards.push({"id": i, "name": titles[i]});
+    }
+    return cards;
 }
 
 function getTeam(name, id) {
