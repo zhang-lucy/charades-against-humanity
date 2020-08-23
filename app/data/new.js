@@ -22,7 +22,12 @@
 //  THE SOFTWARE.
 //  ---------------------------------------------------------------------------------
 'use strict';
+
+// imports for obtaining all cards
 const CARDS_PATH = "cards.txt";
+const readline = require('readline');
+var fs = require('fs');
+
 
 // Knuth shuffle courtesy of https://www.kirupa.com/html5/shuffling_array_js.htm
 Array.prototype.shuffle = function () {
@@ -36,14 +41,22 @@ Array.prototype.shuffle = function () {
     return input;
 };
 
-function getCards() {
-    // TODO: Replace hardcoded names
-    // const titles = ["Barack Obama", "Three midgets shitting in a bucket", "Sexual peeing"];
-    // const cards = [];
-    // for(var i = 0; i < titles.length; i++) {
-    //     cards.push({"id": i, "name": titles[i]});
-    // }
-    // return cards;
+async function getCards() {
+    var cards = [];
+    var id_num = 0;
+
+    const readInterface = readline.createInterface({
+        input: fs.createReadStream(CARDS_PATH),
+        output: process.stdout,
+        terminal: false,
+    });
+
+    for await (const line of readInterface) {
+        cards.push({id: id_num, title: line})
+        id_num++
+    }
+
+    return cards
 }
 
 function getTeam(name, id) {
