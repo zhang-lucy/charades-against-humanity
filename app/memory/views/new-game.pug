@@ -1,0 +1,14 @@
+extends layout
+
+block content
+    h1= title
+    h4 New Game
+    p Game ID:
+    textarea(id="gameId" placeholder="Enter your game id")
+    br
+    p Name:
+    textarea(id="playerName" placeholder="Enter your name")
+    //- button(class='game-button' onclick="newGame()") Submit
+    
+    form(action="/" onclick="newGame()")
+        input(type="submit" value="Submit")
